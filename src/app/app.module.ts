@@ -3,14 +3,18 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http'; 
 
-import { HomepageComponent } from './homepage/homepage.component';
 import { AppComponent } from './app/app.component';
 import { AppRoutingModule } from './app-routing.module';
+import { HomepageComponent } from './homepage/homepage.component';
+import { DocumentsComponent } from './documents/documents.component';
+import { ProposalListComponent } from './proposals/proposal-list/proposal-list.component';
 
 @NgModule({
   declarations: [
-    HomepageComponent,
     AppComponent,
+    HomepageComponent,
+    DocumentsComponent,
+    ProposalListComponent,
   ],
   imports: [
     BrowserModule,
