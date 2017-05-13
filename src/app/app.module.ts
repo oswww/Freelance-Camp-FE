@@ -8,9 +8,11 @@ import { AppComponent } from './app/app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { HomepageComponent } from './homepage/homepage.component';
 import { DocumentsComponent } from './documents/documents.component';
+import { DocumentService } from './documents/document.service';
 import { ProposalListComponent } from './proposals/proposal-list/proposal-list.component';
 import { ProposalNewComponent } from './proposals/proposal-new/proposal-new.component';
 import { ProposalShowComponent } from './proposals/proposal-show/proposal-show.component';
+import { ProposalService } from './proposals/proposal.service';
 
 @NgModule({
   declarations: [
@@ -28,7 +30,10 @@ import { ProposalShowComponent } from './proposals/proposal-show/proposal-show.c
     HttpModule,
     NgbModule.forRoot(),
   ],
-  providers: [],
+  providers: [
+    DocumentService,
+    ProposalService,
+  ],
   bootstrap: [
     AppComponent,
   ]

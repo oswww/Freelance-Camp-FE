@@ -1,0 +1,7 @@
+.proposal-link {
+  width: 100%;
+}
+
+.proposal-link:hover {
+  text-decoration: none;
+}
