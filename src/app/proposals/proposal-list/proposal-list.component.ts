@@ -16,10 +16,10 @@ export class ProposalListComponent implements OnInit, OnDestroy {
 
   constructor(
     private proposalService: ProposalService,
-    ) { }
+  ) {}
 
   ngOnInit() {
-    let timer = Observable.timer(0, 2000);
+    let timer = Observable.timer(0, 30000);
     this.subscription = timer.subscribe(() => this.getProposal())
   }
 

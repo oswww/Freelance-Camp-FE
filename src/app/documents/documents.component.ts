@@ -18,10 +18,10 @@ export class DocumentsComponent implements OnInit, OnDestroy {
 
   constructor(
     private documentService: DocumentService
-    ) { }
+  ) {}
 
   ngOnInit() {
-    let timer = Observable.timer(0, 2000);
+    let timer = Observable.timer(0, 30000);
     this.subscription = timer.subscribe(() => this.getDcouments())
   }
 
