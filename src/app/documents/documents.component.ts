@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs/Rx';
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Observable, Subscription } from 'rxjs/Rx';
 
 import { Document } from './document';
 import { DocumentService } from './document.service';
@@ -10,10 +10,11 @@ import { DocumentService } from './document.service';
   styleUrls: ['./documents.component.css'],
   providers: [ DocumentService ],
 })
-export class DocumentsComponent implements OnInit {
+export class DocumentsComponent implements OnInit, OnDestroy {
   pageTitle = "Dashboard Component";
   documents: Document[];
   errorMessage: string;
+  subscription: Subscription;
 
   constructor(
     private documentService: DocumentService
@@ -21,7 +22,11 @@ export class DocumentsComponent implements OnInit {
 
   ngOnInit() {
     let timer = Observable.timer(0, 2000);
-    timer.subscribe(() => this.getDcouments())
+    this.subscription = timer.subscribe(() => this.getDcouments())
+  }
+
+  ngOnDestroy() {
+    this.subscription.unsubscribe();
   }
 
   getDcouments() {

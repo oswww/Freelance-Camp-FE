@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs/Rx';
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Observable, Subscription } from 'rxjs/Rx';
 
 import { Proposal } from '../proposal';
 import { ProposalService } from '../proposal.service';
@@ -9,9 +9,10 @@ import { ProposalService } from '../proposal.service';
   templateUrl: './proposal-list.component.html',
   styleUrls: ['./proposal-list.component.css']
 })
-export class ProposalListComponent implements OnInit {
+export class ProposalListComponent implements OnInit, OnDestroy {
   proposals: Proposal[];
   errorMessage: string;
+  subscription: Subscription;
 
   constructor(
     private proposalService: ProposalService,
@@ -19,7 +20,11 @@ export class ProposalListComponent implements OnInit {
 
   ngOnInit() {
     let timer = Observable.timer(0, 2000);
-    timer.subscribe(() => this.getProposal())
+    this.subscription = timer.subscribe(() => this.getProposal())
+  }
+
+  ngOnDestroy() {
+    this.subscription.unsubscribe();
   }
 
   getProposal() {
