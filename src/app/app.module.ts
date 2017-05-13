@@ -12,6 +12,7 @@ import { DocumentService } from './documents/document.service';
 import { ProposalListComponent } from './proposals/proposal-list/proposal-list.component';
 import { ProposalNewComponent } from './proposals/proposal-new/proposal-new.component';
 import { ProposalShowComponent } from './proposals/proposal-show/proposal-show.component';
+import { ProposalContentComponent } from './proposals/proposal-content/proposal-content.component';
 import { ProposalService } from './proposals/proposal.service';
 
 @NgModule({
@@ -22,6 +23,7 @@ import { ProposalService } from './proposals/proposal.service';
     ProposalListComponent,
     ProposalNewComponent,
     ProposalShowComponent,
+    ProposalContentComponent,
   ],
   imports: [
     BrowserModule,
