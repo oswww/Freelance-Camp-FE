@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs/rx';
+import { Observable } from 'rxjs/Rx';
 
 import { Document } from './document';
 import { DocumentService } from './document.service';
@@ -20,7 +20,7 @@ export class DocumentsComponent implements OnInit {
     ) { }
 
   ngOnInit() {
-    let timer = Observable.timer(0, 30000);
+    let timer = Observable.timer(0, 2000);
     timer.subscribe(() => this.getDcouments())
   }
 

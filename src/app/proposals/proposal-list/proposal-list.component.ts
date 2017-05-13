@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs/rx';
+import { Observable } from 'rxjs/Rx';
 
 import { Proposal } from '../proposal';
 import { ProposalService } from '../proposal.service';
@@ -14,11 +14,11 @@ export class ProposalListComponent implements OnInit {
   errorMessage: string;
 
   constructor(
-    private proposalService: ProposalService
+    private proposalService: ProposalService,
     ) { }
 
   ngOnInit() {
-    let timer = Observable.timer(0, 30000);
+    let timer = Observable.timer(0, 2000);
     timer.subscribe(() => this.getProposal())
   }
 
@@ -29,5 +29,4 @@ export class ProposalListComponent implements OnInit {
           error => this.errorMessage = <any>error
         );
   }
-
 }
